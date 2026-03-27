@@ -1,0 +1,113 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Rose tones for primary */
+  --background: #FFFBF9;
+  --foreground: #3D2C29;
+  --card: #FFFFFF;
+  --card-foreground: #3D2C29;
+  --popover: #FFFFFF;
+  --popover-foreground: #3D2C29;
+  --primary: #C4A59A;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F5EBE6;
+  --secondary-foreground: #3D2C29;
+  --muted: #F8F2EF;
+  --muted-foreground: #7D6B65;
+  --accent: #D4B5A9;
+  --accent-foreground: #3D2C29;
+  --destructive: #E57373;
+  --destructive-foreground: #FFFFFF;
+  --border: #E8DDD8;
+  --input: #E8DDD8;
+  --ring: #C4A59A;
+  --chart-1: #C4A59A;
+  --chart-2: #D4B5A9;
+  --chart-3: #8B7355;
+  --chart-4: #F5EBE6;
+  --chart-5: #3D2C29;
+  --radius: 0.625rem;
+  
+  /* Custom colors for the dental theme */
+  --rose: #C4A59A;
+  --rose-light: #D4B5A9;
+  --rose-dark: #A68B7F;
+  --brown: #8B7355;
+  --brown-light: #A68B7F;
+  --brown-dark: #3D2C29;
+  --cream: #FFFBF9;
+  --cream-dark: #F5EBE6;
+}
+
+
+
+@theme inline {
+  --font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
+  --font-heading: var(--font-poppins), 'Poppins', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Custom dental theme colors */
+  --color-rose: var(--rose);
+  --color-rose-light: var(--rose-light);
+  --color-rose-dark: var(--rose-dark);
+  --color-brown: var(--brown);
+  --color-brown-light: var(--brown-light);
+  --color-brown-dark: var(--brown-dark);
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Hide scrollbar for testimonials carousel */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
