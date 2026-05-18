@@ -62,7 +62,7 @@ export const services = [
     title: "Limpeza dental e gengival",
     description:
       "Cuidados preventivos completos para manter dentes e gengivas saudáveis.",
-    image: "/services/gengiva-2.webp",
+    image: "/services/limpeza.webp",
     details: [
       {
         title: "Profilaxia",
