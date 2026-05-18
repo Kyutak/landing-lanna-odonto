@@ -1,9 +1,7 @@
 "use client"
-
-import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Star, Clock, MapPin, ArrowRight } from "lucide-react"
+import { Star, ArrowRight } from "lucide-react"
 
 const WHATSAPP_URL = "https://api.whatsapp.com/message/BYTP27AD572NL1?autoload=1&app_absent=0&utm_source=ig"
 
@@ -46,7 +44,7 @@ export function Hero() {
                 </div>
 
                 <span className="text-sm text-[#3D2C29] font-medium">
-                  5.0 - 238 avaliações no Google
+                  5.0 - 247 avaliações no Google
                 </span>
               </div>
 

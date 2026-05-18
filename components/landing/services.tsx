@@ -1,49 +1,44 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 
-const services = [
-  {
-    title: "Urgências e limpeza dental",
-    description:
-      "Procedimento de canais e dor nos dentes, Limpeza de tártaro e placa, Aplicação de flúor, Avaliação preventiva.",
-    image: "/services/canal-1.webp",
-  },
-  {
-    title: "Ortodontia - aparelhos dentários",
-    description:
-      "Soluções para dentes tortos, aparelhos ortodônticos, contenção e manutenção.",
-    image: "/services/aparelho-4.webp",
-  },
-  {
-    title: "Clareamento e Restauração",
-    description:
-      "Facetas em resina, Recontorno estético, Restauração em resina, Fechamento de diastema e Clareamento dental.",
-    image: "/services/clareamento-5.webp",
-  },
-    {
-    title: "Odontopediatria",
-    description:
-      "Atendimento especializado para crianças em ambiente acolhedor e divertido.",
-    image: "/services/odontopediatra-6.webp",
-  },
-  {
-    title: "Periodontia",
-    description:
-      "Cuidados para gengivas saudáveis, Tratamento de sangramento gengival, Raspagem gengival e tratamentos",
-    image: "/services/gengiva-2.webp",
-  },
-  {
-    title: "Próteses e cirurgias",
-    description:
-      "Implante dentário, Próteses fixas e removíveis personalizadas, extração de dentes e sisos.",
-    image: "/services/protese-3.webp",
-  },
-]
+import { services } from "./services-data"
 
 export function Services() {
-  const [showAllMobile, setShowAllMobile] = useState(false)
+  const [expandedService, setExpandedService] = useState<number | null>(null)
+
+  const [visibleCount, setVisibleCount] = useState(6)
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setVisibleCount(3)
+      } else {
+        setVisibleCount(6)
+      }
+    }
+
+    handleResize()
+
+    window.addEventListener("resize", handleResize)
+
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  const handleShowMore = () => {
+    if (window.innerWidth < 768) {
+      if (visibleCount === 3) {
+        setVisibleCount(6)
+      } else if (visibleCount === 6) {
+        setVisibleCount(9)
+      }
+    } else {
+      setVisibleCount(9)
+    }
+  }
+
+  const visibleServices = services.slice(0, visibleCount)
 
   return (
     <section id="servicos" className="py-16 md:py-24 bg-white">
@@ -59,54 +54,78 @@ export function Services() {
           </h2>
         </div>
 
-        {/* Services Grid */}
+        {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => {
-            const hiddenOnMobile = !showAllMobile && index >= 2
+          {visibleServices.map((service, index) => (
+            <div
+              key={index}
+              className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            >
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
 
-            return (
-              <div
-                key={index}
-                className={`
-                  group bg-white rounded-3xl overflow-hidden shadow-sm
-                  hover:shadow-xl transition-all duration-300
-                  ${hiddenOnMobile ? "hidden md:block" : "block"}
-                `}
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+                <div className="absolute inset-0 bg-[#3D2C29]/20 group-hover:bg-[#3D2C29]/10 transition-colors" />
+              </div>
 
-                  <div className="absolute inset-0 bg-[#3D2C29]/20 group-hover:bg-[#3D2C29]/10 transition-colors" />
-                </div>
+              <div className="p-5">
+                <h3 className="font-(family-name:--font-poppins) text-lg text-[#3D2C29] font-semibold mb-2">
+                  {service.title}
+                </h3>
 
-                <div className="p-5">
-                  <h3 className="font-(family-name:--font-poppins) text-lg text-[#3D2C29] font-semibold mb-2">
-                    {service.title}
-                  </h3>
+                <p className="text-[#7D6B65] text-sm leading-relaxed">
+                  {service.description}
+                </p>
 
-                  <p className="text-[#7D6B65] text-sm leading-relaxed">
-                    {service.description}
-                  </p>
+                {/* VER MAIS DO CARD */}
+                <div className="mt-4">
+                  {expandedService === index && (
+                    <ul className="space-y-4">
+                      {service.details.map((item, idx) => (
+                        <li key={idx}>
+                          <p className="text-sm font-semibold text-[#3D2C29]">
+                            • {item.title}
+                          </p>
+
+                          <p className="text-sm text-[#7D6B65] leading-relaxed">
+                            {item.text}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <button
+                    onClick={() =>
+                      setExpandedService(
+                        expandedService === index ? null : index
+                      )
+                    }
+                    className="mt-4 text-[#C4A59A] text-sm font-medium hover:text-[#A68B7F] transition-colors flex items-center gap-1"
+                  >
+                    {expandedService === index ? "Ver menos" : "Ver mais"}
+                  </button>
                 </div>
               </div>
-            )
-          })}
+            </div>
+          ))}
         </div>
 
-        {/* Ver mais - somente mobile */}
-        <div className="mt-6 flex justify-end md:hidden">
-          <button
-            onClick={() => setShowAllMobile(!showAllMobile)}
-            className="text-[#C4A59A] underline text-sm font-medium hover:text-[#A68B7F] transition-colors"
-          >
-            {showAllMobile ? "Ver menos" : "Ver mais"}
-          </button>
-        </div>
+        {/* VER MAIS GERAL */}
+        {visibleCount < 9 && (
+          <div className="mt-10 flex justify-center">
+            <button
+              onClick={handleShowMore}
+              className="px-6 py-3 rounded-full border border-[#C4A59A] text-[#C4A59A] hover:bg-[#C4A59A] hover:text-white transition-all duration-300 text-sm font-medium"
+            >
+              Ver mais
+            </button>
+          </div>
+        )}
       </div>
     </section>
   )
