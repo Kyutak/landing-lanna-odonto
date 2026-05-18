@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Poppins, DM_Sans } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
+
 import './globals.css'
 
 const poppins = Poppins({ 
@@ -34,14 +35,31 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
       <body className={`${poppins.variable} ${dmSans.variable} font-sans antialiased`}>
+        
         {children}
-        <Analytics />
+
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-4KJBZC802W"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-4KJBZC802W');
+          `}
+        </Script>
+
       </body>
     </html>
   )

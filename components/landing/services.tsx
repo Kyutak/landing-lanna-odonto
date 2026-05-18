@@ -11,18 +11,6 @@ const services = [
     image: "/services/canal-1.webp",
   },
   {
-    title: "Periodontia",
-    description:
-      "Cuidados para gengivas saudáveis, Tratamento de sangramento gengival, Raspagem gengival e tratamentos",
-    image: "/services/gengiva-2.webp",
-  },
-  {
-    title: "Próteses e cirurgias",
-    description:
-      "Implante dentário, Próteses fixas e removíveis personalizadas, extração de dentes e sisos.",
-    image: "/services/protese-3.webp",
-  },
-  {
     title: "Ortodontia - aparelhos dentários",
     description:
       "Soluções para dentes tortos, aparelhos ortodônticos, contenção e manutenção.",
@@ -34,11 +22,23 @@ const services = [
       "Facetas em resina, Recontorno estético, Restauração em resina, Fechamento de diastema e Clareamento dental.",
     image: "/services/clareamento-5.webp",
   },
-  {
+    {
     title: "Odontopediatria",
     description:
       "Atendimento especializado para crianças em ambiente acolhedor e divertido.",
     image: "/services/odontopediatra-6.webp",
+  },
+  {
+    title: "Periodontia",
+    description:
+      "Cuidados para gengivas saudáveis, Tratamento de sangramento gengival, Raspagem gengival e tratamentos",
+    image: "/services/gengiva-2.webp",
+  },
+  {
+    title: "Próteses e cirurgias",
+    description:
+      "Implante dentário, Próteses fixas e removíveis personalizadas, extração de dentes e sisos.",
+    image: "/services/protese-3.webp",
   },
 ]
 

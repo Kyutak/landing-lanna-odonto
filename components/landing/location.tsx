@@ -2,8 +2,7 @@
 
 import { useEffect } from "react"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { MapPin, Clock, Phone } from "lucide-react"
+import { MapPin, Clock, Phone, Instagram } from "lucide-react"
 
 declare global {
   interface Window {
@@ -121,19 +120,17 @@ export function Location() {
         <div className="grid md:grid-cols-3 gap-6">
           {/* Address Card */}
           <div className="bg-[#F5EBE6] rounded-2xl p-6 flex flex-col gap-4">
-            <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0">
-              <MapPin className="w-6 h-6 text-[#C4A59A]" />
-            </div>
-
             <div>
               <h3 className="font-semibold text-[#3D2C29] mb-1">
                 Endereço
               </h3>
-
-              <p className="text-[#7D6B65]">
-                Av. Epitácio Pessoa, 1251, no Bairro dos Estados,
-                João Pessoa - PB. Sala 1006, décimo andar.
-              </p>
+              <div className="flex items-start gap-3">
+                <MapPin className="w-10 h-10 text-[#C4A59A]" />
+                <p className="text-[#7D6B65]">
+                  Av. Epitácio Pessoa, 1251, no Bairro dos Estados,
+                  João Pessoa - PB. Sala 1006, décimo andar.
+                </p>
+              </div>
 
               <Link
                 href={MAPS_URL}
@@ -148,51 +145,53 @@ export function Location() {
 
           {/* Hours Card */}
           <div className="bg-[#F5EBE6] rounded-2xl p-6 flex flex-col gap-4">
-            <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0">
-              <Clock className="w-6 h-6 text-[#C4A59A]" />
-            </div>
-
             <div>
-              <h3 className="font-semibold text-[#3D2C29] mb-1">
+              <h3 className="font-semibold text-[#3D2C29] mb-5">
                 Horário de Atendimento
               </h3>
-
-              <p className="text-[#7D6B65]">
-                Todos os dias
-                <br />
-                horário: Sob aviso
-              </p>
+              
+              <div className="flex items-start gap-3">
+                <Clock className="w-5 h-5 text-[#C4A59A]" />
+                <p className="text-[#7D6B65]">
+                  Todos os dias
+                  <br />
+                  horário: Sob aviso
+                </p>
+              </div>
             </div>
           </div>
 
           {/* Contact Card */}
           <div className="bg-[#F5EBE6] rounded-2xl p-6 flex flex-col gap-4">
-            <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0">
-              <Phone className="w-6 h-6 text-[#C4A59A]" />
-            </div>
 
             <div>
-              <h3 className="font-semibold text-[#3D2C29] mb-1">
+              <h3 className="font-semibold text-[#3D2C29] mb-4">
                 Contato
               </h3>
 
-              <p className="text-[#7D6B65] mb-2">
-                Agende sua consulta pelo WhatsApp
-              </p>
-
-              <Button
-                asChild
-                size="lg"
-                className="bg-[#ad7669] hover:bg-[#9f614a] text-white rounded-sm px-8 py-4 lg:px-14 lg:py-6 text-base lg:text-lg font-medium shadow-lg shadow-[#3D2C29]/20 transition-all hover:scale-105"
-              >
+              <div className="flex flex-col gap-3">
+                {/* WhatsApp */}
                 <Link
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-[#7D6B65] hover:text-[#ad7669] transition-colors underline"
                 >
-                  Enviar Mensagem
+                  <Phone className="w-5 h-5 text-[#C4A59A]" />
+                  <span>(83) 99419-2062</span>
                 </Link>
-              </Button>
+
+                {/* Instagram */}
+                <Link
+                  href="https://instagram.com/dra.lannalidia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-[#7D6B65] hover:text-[#ad7669] transition-colors underline"
+                >
+                  <Instagram className="w-5 h-5 text-[#C4A59A]" />
+                  <span>@dra.lannalidia</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

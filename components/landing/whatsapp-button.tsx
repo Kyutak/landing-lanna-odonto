@@ -79,9 +79,9 @@ export function WhatsAppButton() {
 
         {/* Label when scrolling to services */}
         {showLabel && (
-          <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-[#ad7669] text-white px-4 py-2 rounded-lg shadow-lg whitespace-nowrap animate-in fade-in slide-in-from-right-4 duration-300">
+          <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-[#5ac75b] text-white px-4 py-2 rounded-lg shadow-lg whitespace-nowrap animate-in fade-in slide-in-from-right-4 duration-300">
             <span className="text-sm font-medium">Agendar consulta</span>
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 w-2 h-2 bg-[#ad7669] rotate-45" />
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 w-2 h-2 bg-[#52c36c] rotate-45" />
           </div>
         )}
 

@@ -8,9 +8,9 @@ import { Button } from "@/components/ui/button"
 
 const navItems = [
   { href: "#inicio", label: "Início" },
+  { href: "#servicos", label: "Serviços" },
   { href: "#resultados", label: "Resultados" },
   { href: "#sobre", label: "Sobre" },
-  { href: "#servicos", label: "Serviços" },
   { href: "#depoimentos", label: "Depoimentos" },
   { href: "#localizacao", label: "Localização" },
 ]
@@ -80,7 +80,7 @@ export function Header() {
               className="bg-[#3D2C29] hover:bg-[#2a1f1d] text-white rounded-full px-6 font-medium shadow-lg shadow-[#3D2C29]/20 transition-all hover:scale-105"
             >
               <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                Agende sua Consulta
+                Entre em contato
               </Link>
             </Button>
           </div>
@@ -115,7 +115,7 @@ export function Header() {
                   className="bg-[#3D2C29] hover:bg-[#2a1f1d] text-white rounded-full w-full font-medium"
                 >
                   <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                    Agende sua Consulta
+                    Entre em contato
                   </Link>
                 </Button>
               </div>

@@ -161,7 +161,7 @@ export function Testimonials() {
             className="bg-[#ad7669] hover:bg-[#9f614a] text-white rounded-sm px-8 py-4 lg:px-14 lg:py-6 text-base lg:text-lg font-medium shadow-lg shadow-[#3D2C29]/20 transition-all hover:scale-105"
           >
             <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              Agende sua Consulta
+              Falar com a Doutora
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </Button>

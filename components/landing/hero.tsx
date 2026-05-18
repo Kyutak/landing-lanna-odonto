@@ -17,16 +17,16 @@ export function Hero() {
       <div
         className="
           absolute inset-0 bg-cover bg-top bg-no-repeat
-          bg-[url('/sections/header-hero1.webp')]
+          bg-[url('/sections/header-hero1.png')]
           lg:bg-[url('/sections/hero-1.png')]
         "
       />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-linear-to-t from-[#B99388]/80 via-[#C4A59A]/15 to-transparent" />
-      
       {/* Overlay for mobile */}
       <div className="absolute inset-0 bg-[#2a1f1d]/35 lg:hidden" />
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-linear-to-t from-[#B99388]/80 via-[#C4A59A]/15 to-transparent" />
 
       {/* Decorative lines */}
       <div className="absolute top-1/4 left-10 w-px h-32 bg-linear-to-b from-transparent via-[#C4A59A]/20 to-transparent hidden lg:block" />
@@ -62,7 +62,7 @@ export function Hero() {
               <Button
                 asChild
                 size="lg"
-                className="bg-[#ad7669] hover:bg-[#9f614a] text-white rounded-sm px-8 py-4 lg:px-14 lg:py-6 text-base lg:text-lg font-medium shadow-lg shadow-[#3D2C29]/20 transition-all hover:scale-105"
+                className="bg-[#ad7669] hover:bg-[#9f614a] text-white rounded-sm px-8 py-6 lg:px-14 lg:py-6 text-base lg:text-lg font-medium shadow-lg shadow-[#3D2C29]/20 transition-all hover:scale-105"
               >
                 <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                   Agendar minha consulta
