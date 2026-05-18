@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
 const navItems = [
@@ -39,13 +40,24 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="#inicio" className="flex flex-col">
-            <span className="font-[family-name:var(--font-poppins)] text-lg md:text-xl text-[#3D2C29] font-semibold">
-              Dra. Lanna Lídia
-            </span>
-            <span className="text-xs text-[#8B7355] tracking-wider">
-              CRO-PB 11026
-            </span>
+          <Link href="#inicio" className="flex items-center gap-3">
+            <Image
+              src="/icon-dark-only.jpeg"
+              alt=""
+              width={40}
+              height={40}
+              className="rounded-full object-cover"
+            />
+
+            <div className="flex flex-col">
+              <span className="font-(family-name:--font-poppins) text-lg md:text-xl text-[#3D2C29] font-semibold">
+                Dra. Lanna Lídia
+              </span>
+
+              <span className="text-xs text-[#8B7355] tracking-wider">
+                CRO-PB 11026
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -62,7 +74,7 @@ export function Header() {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:block mr-20">
             <Button
               asChild
               className="bg-[#3D2C29] hover:bg-[#2a1f1d] text-white rounded-full px-6 font-medium shadow-lg shadow-[#3D2C29]/20 transition-all hover:scale-105"

@@ -95,6 +95,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  section {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
 }
 
 /* Hide scrollbar for testimonials carousel */

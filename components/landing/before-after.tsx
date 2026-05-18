@@ -50,7 +50,7 @@ function ComparisonSlider({ beforeImage, afterImage }: { beforeImage: string; af
   return (
     <div
       ref={containerRef}
-      className="relative w-full aspect-[4/3] md:aspect-[16/10] rounded-3xl overflow-hidden cursor-ew-resize select-none shadow-2xl"
+      className="relative w-full aspect-4/3 md:aspect-16/10 rounded-3xl overflow-hidden cursor-ew-resize select-none shadow-2xl"
       onMouseMove={handleMouseMove}
       onTouchMove={handleTouchMove}
     >
@@ -105,19 +105,19 @@ export function BeforeAfter() {
   return (
     <section id="resultados" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center lg:px-20">
           {/* Content */}
           <div className="space-y-6 order-2 lg:order-1">
             <div>
               <p className="text-[#C4A59A] font-semibold mb-2 tracking-wider text-sm uppercase">
                 Resultados Reais
               </p>
-              <h2 className="font-[family-name:var(--font-poppins)] text-2xl md:text-3xl lg:text-4xl text-[#3D2C29] font-semibold leading-tight">
+              <h2 className="font-(family-name:--font-poppins) text-2xl md:text-3xl lg:text-4xl text-[#3D2C29] font-semibold leading-tight">
                 Antes & Depois
               </h2>
             </div>
 
-            <p className="text-[#7D6B65] text-base leading-relaxed">
+            <p className="text-[#7D6B65] text-base leading-relaxed hidden md:block">
               Cada caso reflete uma abordagem cuidadosamente planejada, 
               focada na saúde dental a longo prazo e na estética. 
               Veja a transformação que o clareamento dental pode proporcionar.
@@ -125,7 +125,7 @@ export function BeforeAfter() {
 
             <ul className="space-y-3">
               <li className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-[#C4A59A] flex items-center justify-center flex-shrink-0">
+                <div className="w-6 h-6 rounded-full bg-[#C4A59A] flex items-center justify-center shrink-0">
                   <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -133,7 +133,7 @@ export function BeforeAfter() {
                 <span className="text-[#3D2C29] text-sm">Resultados naturais e duradouros</span>
               </li>
               <li className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-[#C4A59A] flex items-center justify-center flex-shrink-0">
+                <div className="w-6 h-6 rounded-full bg-[#C4A59A] flex items-center justify-center shrink-0">
                   <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -141,7 +141,7 @@ export function BeforeAfter() {
                 <span className="text-[#3D2C29] text-sm">Procedimento seguro e confortável</span>
               </li>
               <li className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-[#C4A59A] flex items-center justify-center flex-shrink-0">
+                <div className="w-6 h-6 rounded-full bg-[#C4A59A] flex items-center justify-center shrink-0">
                   <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -153,7 +153,7 @@ export function BeforeAfter() {
             <Button
               asChild
               size="lg"
-              className="bg-[#3D2C29] hover:bg-[#2a1f1d] text-white rounded-full px-8 font-medium shadow-lg shadow-[#3D2C29]/20 transition-all hover:scale-105"
+              className="bg-[#ad7669] hover:bg-[#9f614a] text-white rounded-sm px-8 py-4 lg:px-14 lg:py-6 text-base lg:text-lg font-medium shadow-lg shadow-[#3D2C29]/20 transition-all hover:scale-105"
             >
               <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                 Quero Clarear meus Dentes
@@ -165,8 +165,8 @@ export function BeforeAfter() {
           {/* Before/After Slider */}
           <div className="order-1 lg:order-2">
             <ComparisonSlider
-              beforeImage="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-qafEVks5YX4ubuRjRZoyaOSjUrqg6X.png"
-              afterImage="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Jjxxm9l5Nb6ye6d5mjpaoRzrCKjs1s.png"
+              beforeImage="/sections/antes.webp"
+              afterImage="/sections/depois.webp"
             />
             <p className="text-center text-sm text-[#7D6B65] mt-4">
               Arraste para comparar os resultados

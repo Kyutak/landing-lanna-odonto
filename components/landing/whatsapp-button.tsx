@@ -1,28 +1,54 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 
 const WHATSAPP_URL = "https://api.whatsapp.com/message/BYTP27AD572NL1?autoload=1&app_absent=0&utm_source=ig"
 
 export function WhatsAppButton() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [showLabel, setShowLabel] = useState(false)
   const [isPulsing, setIsPulsing] = useState(true)
+  const labelTimerRef = useRef<NodeJS.Timeout | undefined>(undefined)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsVisible(window.scrollY > 200)
+    // Stop pulsing after 2 seconds
+    const pulseTimer = setTimeout(() => setIsPulsing(false), 2000)
+
+    // Intersection Observer to detect services section
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShowLabel(true)
+
+            // Clear any existing timer
+            if (labelTimerRef.current) {
+              clearTimeout(labelTimerRef.current)
+            }
+
+            // Hide label after 5 seconds
+            labelTimerRef.current = setTimeout(() => {
+              setShowLabel(false)
+            }, 5000)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    const servicesSection = document.getElementById("servicos")
+    if (servicesSection) {
+      observer.observe(servicesSection)
     }
 
-    window.addEventListener("scroll", handleScroll)
-    handleScroll() // Check initial position
-
-    // Stop pulsing after 5 seconds
-    const pulseTimer = setTimeout(() => setIsPulsing(false), 5000)
-
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-      clearTimeout(pulseTimer)
+      window.clearTimeout(pulseTimer)
+      if (labelTimerRef.current) {
+        clearTimeout(labelTimerRef.current)
+      }
+      if (servicesSection) {
+        observer.unobserve(servicesSection)
+      }
     }
   }, [])
 
@@ -31,9 +57,7 @@ export function WhatsAppButton() {
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={`fixed bottom-6 right-6 z-50 transition-all duration-300 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
-      }`}
+      className="fixed bottom-6 right-6 z-50 transition-all duration-300"
       aria-label="Entrar em contato pelo WhatsApp"
     >
       <div className="relative">
@@ -53,11 +77,21 @@ export function WhatsAppButton() {
           </svg>
         </div>
 
-        {/* Tooltip */}
-        <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-white text-[#3D2C29] px-4 py-2 rounded-lg shadow-lg whitespace-nowrap opacity-0 hover:opacity-100 transition-opacity pointer-events-none">
-          <span className="text-sm font-medium">Fale conosco!</span>
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 w-2 h-2 bg-white rotate-45" />
-        </div>
+        {/* Label when scrolling to services */}
+        {showLabel && (
+          <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-[#ad7669] text-white px-4 py-2 rounded-lg shadow-lg whitespace-nowrap animate-in fade-in slide-in-from-right-4 duration-300">
+            <span className="text-sm font-medium">Agendar consulta</span>
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 w-2 h-2 bg-[#ad7669] rotate-45" />
+          </div>
+        )}
+
+        {/* Tooltip on hover */}
+        {!showLabel && (
+          <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-white text-[#3D2C29] px-4 py-2 rounded-lg shadow-lg whitespace-nowrap opacity-0 hover:opacity-100 transition-opacity pointer-events-none">
+            <span className="text-sm font-medium">Fale conosco!</span>
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 w-2 h-2 bg-white rotate-45" />
+          </div>
+        )}
       </div>
     </Link>
   )

@@ -41,23 +41,17 @@ export function About() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Image */}
           <div className="relative">
-            <div className="relative aspect-square max-w-[500px] mx-auto">
+            <div className="relative aspect-square max-w-125 mx-auto">
               {/* Background decorative elements */}
               <div className="absolute top-4 left-4 w-full h-full border-2 border-[#C4A59A] rounded-[30px]" />
               
-              <div className="relative w-full h-full rounded-[30px] overflow-hidden bg-[#F5EBE6]">
+              <div className="relative w-full h-full rounded-[10px] overflow-hidden bg-[#F5EBE6]">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-6DNRYa6P5Xl07VGQqbKbtNQqe26aZ9.png"
+                  src="/sections/abt-1.webp"
                   alt="Dra. Lanna Lídia em seu consultório"
                   fill
-                  className="object-cover object-top"
+                  className="object-cover object-center"
                 />
-              </div>
-
-              {/* Experience badge */}
-              <div className="absolute -bottom-6 -right-6 bg-[#C4A59A] text-white rounded-2xl p-5 shadow-lg">
-                <p className="text-3xl font-[family-name:var(--font-poppins)] font-bold">+5</p>
-                <p className="text-xs">Anos de<br />experiência</p>
               </div>
             </div>
           </div>
@@ -66,25 +60,25 @@ export function About() {
           <div className="space-y-8">
             <div>
               <p className="text-[#C4A59A] font-semibold mb-2 tracking-wider text-sm uppercase">
-                Sobre a Profissional
+                Sobre a Doutora
               </p>
-              <h2 className="font-[family-name:var(--font-poppins)] text-2xl md:text-3xl lg:text-4xl text-[#3D2C29] font-semibold leading-tight">
+              <h2 className="font-(family-name:--font-poppins) text-2xl md:text-3xl lg:text-4xl text-[#3D2C29] font-semibold leading-tight">
                 Dra. Lanna Lídia
               </h2>
               <p className="text-[#8B7355] mt-2 text-sm">CRO-PB 11026</p>
             </div>
 
-            <p className="text-[#7D6B65] text-base leading-relaxed">
+            <p className="text-[#7D6B65] text-base leading-relaxed ">
               Cirurgiã-dentista apaixonada pela odontologia estética e funcional. 
               Minha missão é proporcionar saúde bucal com excelência, combinando 
               técnicas modernas com um atendimento acolhedor e personalizado. 
               Acredito que um sorriso saudável transforma vidas.
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-6 hidden md:block">
               {features.map((feature, index) => (
                 <div key={index} className="flex gap-4">
-                  <div className="w-12 h-12 rounded-full bg-[#F5EBE6] flex items-center justify-center flex-shrink-0 text-[#C4A59A]">
+                  <div className="w-12 h-12 rounded-full bg-[#F5EBE6] flex items-center justify-center shrink-0 text-[#C4A59A]">
                     {feature.icon}
                   </div>
                   <div>
@@ -98,7 +92,7 @@ export function About() {
             <Button
               asChild
               size="lg"
-              className="bg-[#3D2C29] hover:bg-[#2a1f1d] text-white rounded-full px-8 font-medium shadow-lg shadow-[#3D2C29]/20 transition-all hover:scale-105"
+              className="bg-[#ad7669] hover:bg-[#9f614a] text-white rounded-sm px-8 py-4 lg:px-14 lg:py-6 text-base lg:text-lg font-medium shadow-lg shadow-[#3D2C29]/20 transition-all hover:scale-105"
             >
               <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                 Agende sua Avaliação

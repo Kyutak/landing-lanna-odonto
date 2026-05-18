@@ -79,7 +79,7 @@ export function Testimonials() {
           <p className="text-[#C4A59A] font-semibold mb-2 tracking-wider text-sm uppercase">
             Depoimentos
           </p>
-          <h2 className="font-[family-name:var(--font-poppins)] text-2xl md:text-3xl lg:text-4xl text-[#3D2C29] font-semibold leading-tight">
+          <h2 className="font-(family-name:--font-poppins) text-2xl md:text-3xl lg:text-4xl text-[#3D2C29] font-semibold leading-tight">
             O que nossos pacientes dizem
           </h2>
         </div>
@@ -131,7 +131,7 @@ export function Testimonials() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-[320px] snap-start"
+                className="shrink-0 w-[320px] snap-start"
               >
                 <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow h-full">
                   <div className="flex mb-4">
@@ -158,7 +158,7 @@ export function Testimonials() {
           <Button
             asChild
             size="lg"
-            className="bg-[#3D2C29] hover:bg-[#2a1f1d] text-white rounded-full px-8 font-medium shadow-lg shadow-[#3D2C29]/20 transition-all hover:scale-105"
+            className="bg-[#ad7669] hover:bg-[#9f614a] text-white rounded-sm px-8 py-4 lg:px-14 lg:py-6 text-base lg:text-lg font-medium shadow-lg shadow-[#3D2C29]/20 transition-all hover:scale-105"
           >
             <Link href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
               Agende sua Consulta

@@ -26,6 +26,10 @@ export const metadata: Metadata = {
     description: 'Transforme seu sorriso com a Dra. Lanna Lídia. Atendimento humanizado e resultados excepcionais.',
     type: 'website',
   },
+
+  icons: {
+    icon: '/icon-white.png',
+  },
 }
 
 export default function RootLayout({
