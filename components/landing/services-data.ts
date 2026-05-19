@@ -106,7 +106,7 @@ export const services = [
   {
     title: "Odontopediatria",
     description:
-      "Atendimento especializado para crianças em um ambiente acolhedor e seguro.",
+      "Atendimento para crianças em um ambiente acolhedor e seguro.",
     image: "/services/odontopediatra-6.webp",
     details: [
       {
@@ -188,7 +188,7 @@ export const services = [
   },
 
   {
-    title: "Próteses",
+    title: "Implantes",
     description:
       "Reabilitação oral completa para devolver função, conforto e autoestima.",
     image: "/services/protese-3.webp",

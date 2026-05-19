@@ -69,7 +69,7 @@ export function About() {
             </div>
 
             <p className="text-[#7D6B65] text-base leading-relaxed ">
-              Cirurgiã-dentista apaixonada pela odontologia estética e funcional. 
+              Cirurgiã-dentista apaixonada pela odontologia funcional e estética. 
               Minha missão é proporcionar saúde bucal com excelência, combinando 
               técnicas modernas com um atendimento acolhedor e personalizado. 
               Acredito que um sorriso saudável transforma vidas.

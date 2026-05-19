@@ -49,7 +49,7 @@ export function Hero() {
               </div>
 
             <h1 className="font-(family-name:--font-poppins) text-3xl md:text-4xl lg:text-5xl text-[#ffe4e0] lg:text-[#3D2C29] font-semibold">
-              Transforme seu sorriso no lugar certo. Com Dra. Lanna Lídia
+              Transforme seu sorriso no lugar certo.
             </h1>
 
             <p className="text-base text-[#6f5d56] max-w-lg leading-relaxed hidden md:block">

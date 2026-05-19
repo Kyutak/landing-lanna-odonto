@@ -76,7 +76,7 @@ export function Footer() {
                   Estados, João Pessoa - PB<br />
                   CEP: 58030-901
                 </p>
-                <p>Segunda a Sexta, 8h às 18h</p>
+                <p>Todos os dias, horário sob aviso</p>
               </div>
               
               <div className="flex gap-4 mt-6">
